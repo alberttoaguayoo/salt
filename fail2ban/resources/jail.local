@@ -1,5 +1,0 @@
-
-[sshd]
-maxretry = 3 
-bantime = 3600 
-

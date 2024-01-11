@@ -4,14 +4,9 @@ instalation:
   pkg.installed:
     - name: fail2ban
 
-/etc/fail2ban/jail.local:
-  file.copy:
-    - source: /etc/fail2ban/jail.conf
-
-sshd_modified:
+/etc/fail2ban/jail.local:  
   file.append:
-    - name: /etc/fail2ban/jail.local
-    - source: salt://fail2ban/resources/jail.local
+    - source: salt://fail2ban/templates/jail.conf
     - template: jinja
 
 fail2ban:
