@@ -4,13 +4,14 @@ instalation:
   pkg.installed:
     - name: fail2ban
 
-/etc/fail2ban/jail.conf:  
+/etc/fail2ban/jail.conf:
   file.append:
     - source: salt://fail2ban/templates/jail.conf
+    - template: jinja
 
-fail2ban:
-  service.running:
-    - reload: True
+restart_fail2ban:
+  cmd.run:
+    - name: fail2ban-client restart
 
 {% for user in pillar['users'] or [] %}
 {{ user }}_user_present:
