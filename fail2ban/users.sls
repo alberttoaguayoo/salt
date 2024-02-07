@@ -1,5 +1,0 @@
-users:
-  - alberttoaguayoo
-  - ruiztulio
-  - LlaveLuis
-
