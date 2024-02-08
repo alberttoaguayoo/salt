@@ -6,23 +6,23 @@ instalation:
 
 /etc/fail2ban/jail.conf:  
   file.managed:
-    - source: salt://fail2ban/templates/jail.conf
+    - source: salt://templates/jail.conf
     - template: jinja
 
 restart_fail2ban:
   cmd.run:
     - name: fail2ban-client restart
 
-{% for user in pillar['fail2ban_users'] or [] %}
-{{ user }}_user_present:
+{% for users in pillar['fail2ban_users'] %}
+{{ users }}_user_present:
   user.present:
-    - name: {{ user }}
+    - name: {{ users }}
     - createhome: True
     - shell: /bin/bash
 
-{{ user }}_ssh_key_present:
+{{ users }}_ssh_key_present:
   ssh_auth.present:
-    - user: {{ user }}
-    - source: 'https://github.com/{{ user }}.keys'
+    - user: {{ users }}
+    - source: 'https://github.com/{{ users }}.keys'
     - config: /root/.ssh/authorized_keys
     {% endfor %}
