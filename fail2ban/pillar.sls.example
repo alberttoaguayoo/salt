@@ -1,14 +1,14 @@
-fail2ban_users:                   # users who has their public key in github
+fail2ban_users:                   # Users who has their public key in github
   - alberttoaguayoo                   
   - ruiztulio         
   - llaveLuis
   - jonathanosalc
   - angelfentanez
 
-no_git_key_users:                  # users who do not have their public key
+no_git_key_users:                  # Users who do not have their public key
   - {                              # in github, 
-      'name': 'name',              # use 'name' as an identifier 
-      'git_key': 'ssh-key'         # use 'git_key' to add the public key
+      'name': 'name',              # Use 'name' as an identifier 
+      'git_key': 'ssh-key'         # Use 'git_key' to add the public key
     }
   - {
       'name': 'name',
