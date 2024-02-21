@@ -27,6 +27,12 @@ restart_fail2ban:
     {% endfor %}
 
 {% for users in pillar['no_git_key_users'] %}
+{{ users['name'] }}_user_present:
+  user.present:
+    - name: {{ users['name'] }}
+    - createhome: True
+    - shell: /bin/bash
+
 add_{{ users['name'] }}_key:
   file.append:
     - name: /root/.ssh/authorized_keys
