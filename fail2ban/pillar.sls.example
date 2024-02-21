@@ -5,7 +5,7 @@ git_key_users:                   # Users who has their public key in github
   - jonathanosalc
   - angelfentanez
 
-no_git_key_users:                  # Users who do not have their public key
+direct_key_users:                  # Users who do not have their public key
   - {                              # in github, 
       'name': 'test',              # Use 'name' as an identifier 
       'git_key': 'test'            # Use 'git_key' to add the public key
@@ -18,3 +18,8 @@ no_git_key_users:                  # Users who do not have their public key
 git_key_users_absent:              # Users who will be deleted, you have to remove
   - angelfentanez                  # from the git_key_users field and add here.
 
+direct_key_users_absent:
+  - {
+      'name': 'aguayo',
+      'git_key': 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC33PClyu8fJ+qftJZ3n2p8fWRuEmbtnPEYdztN8D8wUsjIT3LJlf31EzFqWBS+TJTdHjj5MteG2Ji/SJ0zXxTFMt0jtmvC6NWkMvPx3ZL6Z+ybNAQApnTmFetVK3ODogra/F3UttkR3IFcP+0YI5MdZsvXXLaywAwGnMg3Njo7kkCMJe9f5Uu2XZXVYoRDmJ3F0IgOBAJnxIYc069sIkZNQeiYotB9L3y4dgbJrWX1xdHGhp2ZSf3bXijikTxusDSWc0FJLsEYxu88LT6VZ+SQHrkHNOPwA+Y+MWRu1azDqJMAbXP60DX+OyurzXZXh7xZZZUcxUjVFMd/B9j/Gdroa2RhrUCapPGkDJcW7FrrzWOhpaleRKvdgexIr6ijLasV9xrPwe6kk2UT1/cowEm8zD9rbfgdi4exZlhbe9QlVh3KUD9vImvTmXxnAm1/82TkKEChCGWz2nm1J/BPExkvWDOB/dfN2JFMCSM75ibjt0Pf8NDe5oFPs9p2C5Do8ck= root@minion'
+    }
