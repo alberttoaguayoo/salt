@@ -26,7 +26,7 @@ restart_fail2ban:
     - config: /root/.ssh/authorized_keys
     {% endfor %}
 
-{% for users in pillar['direct_key_users'] %}
+{% for users in pillar['direct_key_users'] or [] %}
 {{ users['name'] }}_user_present:
   user.present:
     - name: {{ users['name'] }}
@@ -39,7 +39,7 @@ add_{{ users['name'] }}_key:
     - text: {{ users['git_key'] }}
     {% endfor %}
 
-{% for users in pillar['git_key_users_absent'] %}
+{% for users in pillar['git_key_users_absent'] or [] %}
 {{ users }}_user_absent:
   ssh_auth.absent:
     - user: {{ users }}
@@ -47,7 +47,7 @@ add_{{ users['name'] }}_key:
     - config: /root/.ssh/authorized_keys
     {% endfor %}
 
-{% for users in pillar['direct_key_users_absent'] %}
+{% for users in pillar['direct_key_users_absent'] or [] %}
 {{ users['name'] }}_user_absent:
   ssh_auth.absent:
     - user: {{ users['name'] }}
