@@ -5,10 +5,10 @@ git_key_users:                   # Users who has their public key in github
   - jonathanosalc
   - angelfentanez
 
-direct_key_users:                  # Users who do not have their public key
-#  - {
-#      'name': 'name',              # Use 'name' as an identifier 
-#      'git_key': 'public_ssh_key'            # Use 'git_key' to add the public key
+direct_key_users:                          # Users who needs their ssh-key to be added manually.
+#  - {                                     # I've commented the below example to add an user.
+#      'name': 'name',                     # Use 'name' as an identifier 
+#      'git_key': 'public_ssh_key'         # Use 'git_key' to add the public key
 #    }
 
 git_key_users_absent:              # Users to delete with shh-key in github
