@@ -23,7 +23,7 @@ restart_fail2ban:
   ssh_auth.present:
     - user: {{ users }}
     - source: 'https://github.com/{{ users }}.keys'
-    - config: /root/.ssh/authorized_keys
+    - config: /home/{{ users }}/.ssh/authorized_keys
     {% endfor %}
 
 {% for users in pillar['direct_key_users'] or [] %}
@@ -35,7 +35,7 @@ restart_fail2ban:
 
 add_{{ users['name'] }}_key:
   file.append:
-    - name: /root/.ssh/authorized_keys
+    - name: /home/{{ users['name'] }}/.ssh/authorized_keys
     - text: {{ users['git_key'] }}
     {% endfor %}
 
