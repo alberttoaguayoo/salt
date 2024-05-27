@@ -30,4 +30,4 @@ allow_{{ access['name'] }}:
 deny_traffic:
   cmd.run:
     - name: ufw default deny incoming
-    - name : ufw default deny outgoing
+    - name: ufw default deny outgoing
