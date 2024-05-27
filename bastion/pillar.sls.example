@@ -1,0 +1,8 @@
+ufw_allow:
+  - name: vauxoo_bastion
+    ip: 52.90.187.130
+    port: 22
+#  - name: client_ip   
+#    ip: 1.1.1.1    ## this will be different for each client
+#    port: 22
+
