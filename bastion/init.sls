@@ -16,5 +16,3 @@ authentication:
 restart-ssh-service:
   cmd.run:
     - name: service ssh restart
-
-
