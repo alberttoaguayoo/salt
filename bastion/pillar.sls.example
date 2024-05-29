@@ -1,8 +1,23 @@
 ufw_allow:
-  - name: vauxoo_bastion
-    ip: 52.90.187.130
+  - name: vauxoo_bastion          # Client IP is missing here.
+    ip: 52.90.187.130             # In case of needed please add at the end
+    port: 22                      # of file using the same sintaxis.
+  - name: teleport_proxy 
+    ip: 52.55.140.205
+    port: 3022
+  - name: teleport_proxy_ssh
+    ip: 52.55.140.205
     port: 22
-#  - name: client_ip   
-#    ip: 1.1.1.1    ## this will be different for each client
-#    port: 22
+  - name: teleport_auth_ssh
+    ip: 23.21.127.186
+    port: 22
+  - name: zabbix
+    ip: 142.44.210.141
+    port: 10050
+  - name: barman_postgres
+    ip: 192.99.142.236
+    port: 5432
+  - name: barman_ssh
+    ip: 192.99.142.236
+    port: 22
 
