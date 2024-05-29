@@ -14,20 +14,7 @@ authentication:
 
 # Restart sshd service    
 restart-ssh-service:
-  service.running:
-    - name: sshd
-    - enable: True
-    - reload: True
-
-#firewall_rules
-
-{% for access in pillar['ufw_allow'] %}
-allow_{{ access['name'] }}:
   cmd.run:
-    - name: ufw allow from {{ access['ip'] }} to any port {{ access['port'] }}
-{% endfor %}
+    - name: service ssh restart
 
-deny_traffic:
-  cmd.run:
-    - name: ufw default deny incoming
-    - name : ufw default deny outgoing
+
