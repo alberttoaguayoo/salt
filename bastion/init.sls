@@ -2,6 +2,7 @@
 
 include: 
   - ufw
+  - base
 
 # Package installation
 openssh-server:
