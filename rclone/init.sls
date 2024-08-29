@@ -1,7 +1,7 @@
 {% if grains['os'] == 'Rocky' %}
 download_rclone:
   archive.extracted:
-    - name: /tmp/
+    - name: /tmp/rclone/
     - source: https://downloads.rclone.org/rclone-current-linux-amd64.zip
     - archive_format: zip
     - user: root
@@ -10,18 +10,14 @@ download_rclone:
 
 move_rclone_binary:
   cmd.run:
-    - name: "mv $(ls -d /tmp/rclone*/rclone) /usr/local/bin/"
+    - name: "mv $(ls -d /tmp/rclone/rclone*/rclone) /usr/local/bin/"
     - unless: test -x /usr/local/bin/rclone
     - require:
       - download_rclone
 
 clean_rclone:
-  cmd.run:
-    - name: "rm -rf /tmp/rclone*"
-    - onlyif: ls /tmp/rclone* 1>/dev/null 2>&1
-    - require:
-      - move_rclone_binary
-
+  file.absent:
+    - name: /tmp/rclone
 {% else %}
 rclone_pkg:
   pkg.installed:
