@@ -2,7 +2,7 @@
 download_rclone:
   archive.extracted:
     - name: /tmp/rclone/
-    - source: https://downloads.rclone.org/rclone-current-linux-amd64.zip
+    - source: https://downloads.rclone.org/v{{ pillar['rclone_version'] }}/rclone-v{{ pillar['rclone_version'] }}-freebsd-amd64.zip
     - archive_format: zip
     - user: root
     - group: root
