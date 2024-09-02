@@ -1,7 +1,7 @@
 download_s5cmd:
   archive.extracted:
     - name: /tmp/s5cmd/
-    - source: https://github.com/peak/s5cmd/releases/latest/download/s5cmd_2.2.2_Linux-64bit.tar.gz
+    - source: https://github.com/peak/s5cmd/releases/latest/download/s5cmd_{{ pillar['s5cmd_version'] }}_Linux-64bit.tar.gz
     - archive_format: tar
     - enforce_toplevel: False
     - user: root
