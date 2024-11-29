@@ -1,0 +1,17 @@
+version: '2.4'
+
+services:
+  mailpit:
+    image: axllent/mailpit:v{{ mailpit['version'] }}
+    container_name: mailpit
+    ports:
+      - "{{ mailpit['ip'] }}:{{ mailpit['smtp_port'] }}:{{ mailpit['smtp_port'] }}"
+      - "{{ mailpit['ip'] }}:{{ mailpit['http_port'] }}:{{ mailpit['http_port'] }}"
+    environment:
+      - MAILPIT_SMTP_BIND={{ mailpit['ip'] }}:{{ mailpit['smtp_port'] }}
+      - MAILPIT_HTTP_BIND={{ mailpit['ip'] }}:{{ mailpit['http_port'] }}
+    restart: unless-stopped
+    network_mode: bridge
+
+
+
